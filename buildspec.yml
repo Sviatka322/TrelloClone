@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - cd /src/TrelloClone/ && dotnet publish -c Release -r linux-x64 --self-contained false Api.csproj
+      - dotnet publish -c Release -r linux-x64 --self-contained false src/TrelloClone/TrelloClone.csproj
       
 artifacts:
   files:
