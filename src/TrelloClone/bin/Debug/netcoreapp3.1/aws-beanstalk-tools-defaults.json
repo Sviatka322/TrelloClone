@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-2",
+    "configuration" : "Debug",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : false,
+    "application"    : "TrelloClone",
+    "environment"    : "TrelloClone-dev",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-08acd172ea34ead1e\";\"aws:ec2:vpc,Subnets\"=\"subnet-0898e8c29d1c76efc\"",
+    "proxy-server"         : "nginx",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.2.5 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "trelloclone-dev",
+    "instance-type"        : "t3a.medium",
+    "key-pair"             : "publicKey",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role"
+}

@@ -1,0 +1,29 @@
+version: '3'
+services:
+   ms_sql_server:
+     image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+     environment:
+       ACCEPT_EULA: "Y"
+       SA_PASSWORD: ${DB_PASSWORD}
+       MSSQL_PID: Express
+     ports:
+       - "1433:1433"
+     depends_on:
+       - migrations
+     volumes:
+       - ms_sql_server:/var/opt/mssql/data
+
+   migrations:
+     image: sviatoslav322/trello_clone_migration_production:latest
+
+   trello_clone:
+     image: sviatoslav322/trello_clone_production:latest
+     ports:
+       - "8080:80"
+     depends_on:
+       - ms_sql_server
+       - migrations
+
+volumes:
+  ms_sql_server:
+
