@@ -4,7 +4,7 @@ phases:
     commands:
       - dotnet test ./src/TrelloCloneUnitTests/TrelloCloneUnitTests.csproj
       - dotnet publish -c release -o ./src/TrelloClone/build_output ./src/TrelloClone/TrelloClone.csproj
-      - ls /src/TrelloClone/build_output/
+      - ls src/TrelloClone/build_output/
       - zip src/TrelloClone/trello-clone.zip src/TrelloClone/build_output/
 artifacts:
   files:
