@@ -3,7 +3,8 @@ phases:
   build:
     commands:
       - dotnet test ./src/TrelloClone/TrelloClone.csproj
-      - dotnet publish -c release -o ./ ./src/TrelloClone/TrelloClone.csproj
+      - dotnet publish -c release -o ./build-output ./src/TrelloClone/TrelloClone.csproj
 artifacts:
   files:
     - ./**/*
+base-directory: 'build-output'
