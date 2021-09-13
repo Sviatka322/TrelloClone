@@ -8,4 +8,5 @@ artifacts:
   files:
     - ./**/*
   base-directory: 'build-output'
+  enable-symlinks: yes
   discard-paths: yes
