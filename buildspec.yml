@@ -5,7 +5,7 @@ phases:
       - dotnet test ./src/TrelloClone/TrelloClone.csproj
       - dotnet publish -c release -o ./build-output ./src/TrelloClone/TrelloClone.csproj
       - apt install -y zip
-      - zip aws-trello-clone.zip build-output/*
+      - zip aws-trello-clone.zip build-output
 artifacts:
   files:
     - aws-trello-clone.zip
