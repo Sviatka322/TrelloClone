@@ -1,28 +1,11 @@
 version: 0.2
-
-phases:   
-  install:
-    runtime-versions:
-      dotnet: latest
-      
-  pre_build:
-    commands:
-      - echo Restore started on `date`
-      - dotnet restore src/TrelloClone/TrelloClone.csproj
-      
+phases:
   build:
     commands:
-      - echo Build started on `date`
-      - dotnet build src/TrelloClone/TrelloClone.csproj
-      
-  post_build:
-    commands:
-      - echo Publish started on `date`
-      # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 --self-contained false src/TrelloClone/TrelloClone.csproj
-      
+      - dotnet test ./src/TrelloClone/TrelloClone.csproj
+      - dotnet publish -c release -o ./build-output ./src/TrelloClone/TrelloClone.csproj
+      - apt install -y zip
+      - zip aws-trello-clone.zip build-output/*
 artifacts:
   files:
-    - '**/*'
-  base-directory: ./src/TrelloClone/bin/Release/netcoreapp3.1/linux-x64/publish/
-  discard-paths: no
+    - aws-trello-clone.zip
