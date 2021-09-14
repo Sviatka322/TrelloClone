@@ -7,8 +7,8 @@ phases:
   post_build:
     commands:
       - dotnet tool install --global dotnet-ef
-      - dotnet ef migrations add InitialMigration --msbuildprojectextensionspath src/TrelloClone/
-      - dotnet ef database update
+      - dotnet ef migrations add InitialMigration --project src/TrelloClone/TrelloClone.csproj
+      - dotnet ef database update --project src/TrelloClone/TrelloClone.csproj
 artifacts:
   files:
     - ./**/*
