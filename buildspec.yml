@@ -7,6 +7,7 @@ phases:
   post_build:
     commands:
       - dotnet tool install --global dotnet-ef
+      - cd /src/TrelloClone/
       - dotnet ef migrations add InitialMigration
       - dotnet ef database update
 artifacts:
