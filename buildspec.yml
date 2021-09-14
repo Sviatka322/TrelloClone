@@ -7,8 +7,8 @@ phases:
   post_build:
     commands:
       - dotnet tool install --global dotnet-ef
-      - dotnet-ef migrations add InitialMigration
-      - dotnet-ef database update
+      - dotnet ef migrations add InitialMigration
+      - dotnet ef database update
 artifacts:
   files:
     - ./**/*
