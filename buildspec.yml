@@ -4,6 +4,11 @@ phases:
     commands:
       - dotnet test ./src/TrelloClone/TrelloClone.csproj
       - dotnet publish -c release -o ./build-output ./src/TrelloClone/TrelloClone.csproj
+  db_migration:
+    commands:
+      - dotnet tool install --global dotnet-ef
+      - dotnet-ef migrations add InitialMigration
+      - dotnet-ef database update
 artifacts:
   files:
     - ./**/*
